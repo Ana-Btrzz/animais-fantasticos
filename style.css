@@ -142,7 +142,8 @@ ul {
     margin-top: 2rem;
     margin-bottom: .5rem;
     color: #E54;
-
+    width: fit-content;
+    cursor: pointer;
 }
 
 .faq-lista dt::before {
@@ -258,7 +259,7 @@ ul {
 }
 
 
-/* accodion: */
+/* accordion: */
 
 .js-accordion dd {
     display: none;
@@ -275,7 +276,7 @@ ul {
 
 .js-accordion dd.ativo {
     display: block;
-    animation: slideDown .5s;
+    animation: slideDown .5s forwards;
 }
 
 @keyframes slideDown {
@@ -289,3 +290,20 @@ ul {
         max-height: 200px;
     }
 }
+
+/* .js-accordion dd {
+    overflow: hidden;
+    display: block;
+}
+
+.js-accordion dd:not(.ativo) {
+    max-height: 0;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.js-accordion dd.ativo {
+    max-height: 200px;
+    opacity: 1;
+    transition: all .5s;
+} */

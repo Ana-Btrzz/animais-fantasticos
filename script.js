@@ -39,4 +39,29 @@ function initAccordion() {
 
 initAccordion();
 
+//rolagem suave de link interno:
+//busque no Mozilla >> 'window.scrollTo()' ou 'element.scrollIntoView()'
+
+function initScrollSuave() {
+    const linksInternos = document.querySelectorAll('.js-menu a[href^="#"');
+
+    function scrollToSection(event) {
+        event.preventDefault();
+        const href = event.currentTarget.getAttribute('href');
+        const section = document.querySelector(href);
+        const topo = section.offsetTop; //O offsetTop é uma propriedade do DOM (Document Object Model) que retorna a distância em pixels do topo do elemento em relação ao topo do elemento offsetParent mais próximo
+    
+        window.scrollTo({
+            top: topo,
+            behavior: 'smooth', //suaviza o scroll 
+        });
+    }
+    
+    linksInternos.forEach((link) => {
+        link.addEventListener('click', scrollToSection);
+    });
+}
+
+initScrollSuave();
+
 
